@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-display: "Bahnschrift", "DIN Alternate", "Arial Narrow", sans-serif;
+  --font-ui: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-ui);
+  background:
+    linear-gradient(180deg, rgba(9, 17, 30, 0.94), rgba(7, 12, 22, 1)),
+    radial-gradient(circle at top, rgba(98, 230, 199, 0.1), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(255, 90, 111, 0.12), transparent 20%),
+    #08111d;
+  color: #f4f7fb;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(255, 90, 111, 0.35);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.surface-panel {
+  background:
+    linear-gradient(180deg, rgba(19, 29, 47, 0.96), rgba(12, 20, 35, 0.98)),
+    rgba(16, 26, 43, 0.96);
+}
+
+.surface-card {
+  background:
+    linear-gradient(180deg, rgba(18, 28, 46, 0.95), rgba(12, 18, 31, 0.95)),
+    rgba(16, 26, 43, 0.92);
+}
+
+.surface-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.01) 30%,
+    transparent 60%
+  );
+}
+
+.noise-grid {
+  position: relative;
+}
+
+.noise-grid::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent 100%);
+}
+
+.ui-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(57, 85, 125, 0.58);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(1, 6, 16, 0.42);
+}
+
+.tap-target {
+  min-height: 52px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hover-lift {
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+}
